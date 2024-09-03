@@ -25,6 +25,12 @@ function Nav() {
               About
             </Link>
             <Link
+              to={"/writting"}
+              className={`${location.pathname == "/writting" ? "active" : ""} `}
+            >
+              Writting a Blog
+            </Link>
+            <Link
               to={"/links"}
               className={`${location.pathname == "/links" ? "active" : ""} `}
             >

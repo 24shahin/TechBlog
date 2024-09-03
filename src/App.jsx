@@ -12,6 +12,7 @@ import Projects from "./component/Projects";
 import Home from "./component/Home";
 import Registration from "./pages/Registration";
 import Login from "./pages/Login";
+import WrittingBlog from "./component/WrittingBlog";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
        <Route path="/login" element={<Login />}></Route>
         <Route path="/" element={<Home />}>
           <Route path="/" element={<Blog />}></Route>
+          <Route path="/writting" element={<WrittingBlog />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="links" element={<Links />}></Route>
           <Route path="projects" element={<Projects />}></Route>
