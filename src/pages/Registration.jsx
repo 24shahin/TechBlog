@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa6";
 
 function Registration() {
   const [regData, SetRegData] = useState({
@@ -12,7 +13,7 @@ function Registration() {
     email: "",
     password: "",
   });
-
+  const [openEye, SetOpenEye] = useState(false);
   const handleChange = (e) => {
     SetRegData({ ...regData, [e.target.name]: e.target.value });
     SetRegerror({ ...regerror, [e.target.name]: "" });
@@ -90,14 +91,28 @@ function Registration() {
                     </div>
                   )}
                 </div>
-                <div>
+                <div className="password">
                   <input
-                    type="password"
+                    type={openEye ? "text" : "password"}
                     name="password"
-                    placeholder="••••••••"
+                    placeholder="password"
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     onChange={handleChange}
                   />
+                  {!openEye && (
+                    <FaRegEye
+                      className="eye"
+                      onClick={() => SetOpenEye(!openEye)}
+                      style={{ color: "#03014C" }}
+                    />
+                  )}
+                  {openEye && (
+                    <FaRegEyeSlash
+                      className="eye"
+                      onClick={() => SetOpenEye(!openEye)}
+                      style={{ color: "#03014C" }}
+                    />
+                  )}
                   {regerror.password && (
                     <div
                       className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
